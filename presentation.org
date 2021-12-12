@@ -14,8 +14,6 @@
 
 #+HTML_HEAD: <style>.blue {color: #1b91ff;}</style>
 
-#+TITLE: Introduction to GRETIL and associated technologies
-#+AUTHOR: Maximilian Mehner, M.A.
 #+DATE: <2021-12-14 Di>
 
 * Introduction to GRETIL and associated technologies
