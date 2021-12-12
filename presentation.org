@@ -1,0 +1,565 @@
+#+LANGUAGE: en
+
+#+REVEAL_ROOT: /home/sahibram/Software/reveal.js
+#+REVEAL_THEME: modnight
+# other: black (default) white league sky beige simple serif blood night moon solarized
+# modified: modnight
+#+REVEAL_TRANS: default
+# other: default cube page concave zoom linear fade none
+
+#+OPTIONS: num:nil toc:nil reveal_title_slide:nil reveal_single_file:t
+
+#+MACRO: fragment @@html:<span class="fragment $1">$2</span>@@
+# options for $1: grow, shrink, fade-out, fade-up, current-visible, highlight-current-blue, highlight-red, highlight-green, highlight-blue
+
+#+HTML_HEAD: <style>.blue {color: #1b91ff;}</style>
+
+#+TITLE: Introduction to GRETIL and associated technologies
+#+AUTHOR: Maximilian Mehner, M.A.
+#+DATE: <2021-12-14 Di>
+
+* Introduction to GRETIL and associated technologies
+
+  by Maximilian Mehner, M.A. (Philipps University Marburg)
+
+* Digital Literacy / Literacies
+
+  #+begin_src shell
+    grep -hoR "\w\+\( and \w\+\)\? literac[iy]\(es\)\?" dhq/xml | sort | uniq
+  #+end_src
+
+  #+ATTR_HTML: :style text-align:left
+  Manually filtered results:
+  
+  #+ATTR_HTML: :style font-size:75%
+  #+begin_example
+  | algorithmic literacy     | multimodal literacy    |
+  | cod(e/ing) literacy      | new literacies         |
+  | computation(al) literacy | software literacy      |
+  | computer literacy        | spatial literacy       |
+  | critical literacy        | statistical literacy   |
+  | data literacy            | technical literacy     |
+  | DH literacy              | technological literacy |
+  | digital literacy         | transmedia literacy    |
+  | hypermedia literacy      | visualization literacy |
+  | information(al) literacy | visual literacy        |
+  | media literacy           | web literacy           |
+  #+end_example
+  
+** Digital Literacies -- discussion points
+
+   #+ATTR_HTML: :style text-align:left
+   /critical, but focused on what?/
+   
+   - [[class:blue][broad pedagogy]] vs. institutional
+     - [[class:blue][trans-medial]] vs. specific
+     - [[class:blue][surface-level reading]] vs. writing (code)
+   - [[class:blue][systematic training]] vs. exploration incentives
+   - [[class:blue][FOSS]] vs. corporate proprietary options
+
+     
+   #+ATTR_HTML: :style text-align:right; font-size:75%
+   Cf. Spence 2020.
+   
+* Digital Humanities (DH)
+
+   #+ATTR_HTML: :style text-align:left
+   DH are perceived/used … (Thaller in Jannidis 2017)
+   
+   #+attr_reveal: :frag appear
+   #+ATTR_HTML: :style font-size:75%
+   1. [[class:blue][by most scholars as more efficient means for conventional research questions]] or
+   2. by some scholars as entirely new methods that expand and redefine research questions.
+
+      
+   #+ATTR_HTML: :style text-align:left   
+   DH apply their research methods to … (Spence 2020)
+   
+   #+attr_reveal: :frag appear
+   #+ATTR_HTML: :style font-size:75%; float:left
+   1. [[class:blue][digitised surrogates of analogue content]] and
+   2. born digital content.
+
+** The Digital & the Humanities in time
+ :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: data-auto-animate
+  :END:
+
+   #+ATTR_REVEAL: :data_id histtab
+   #+ATTR_HTML: :style font-size:75%
+   | *1949* | Roberto Busa collaborates with IBM on /Index Thomisticus/     |
+   | *1964* | /Linguistic Computing Centre/ in Cambridge                    |
+   | *1966* | Journal: /Computers and the Humanities/                       |
+   | *1968* | /Statistical Package for the Social Sciences/ (SPSS)          |
+   | *1973* | Journal: /Literary and Linguistic Computing/                  |
+   | *1978* | /TUebinger System von TExtverarbeitungs-Programmen/ (TU-STEP) |
+   | *1985* | rise of Personal Computers (PC) and Email                     |
+   | *1987* | /Text Encoding Initiative/ (TEI)                              |
+   | *1993* | /World Wide Web/ goes public                                  |
+   | *2007* | Online journal: [[http://digitalhumanities.org/dhq/][Digital Humanities Quarterly]]                  |
+
+  
+   #+ATTR_HTML: :style text-align:right; font-size:75%
+   Cf. Thaller in Jannidis 2017, p. 3--12.
+
+** 
+   :PROPERTIES:
+   :REVEAL_EXTRA_ATTR: data-auto-animate
+   :END:
+
+  #+ATTR_REVEAL: :data_id histtab
+  #+ATTR_HTML: :style font-size:75%
+  | *1949* | Roberto Busa collaborates with IBM on /Index Thomisticus/     |
+  | *1964* | /Linguistic Computing Centre/ in Cambridge                    |
+  | *1966* | Journal: /Computers and the Humanities/                       |
+  | *1968* | /Statistical Package for the Social Sciences/ (SPSS)          |
+  |        | [[class:blue][quantitative turn]]                                             |
+  | *1973* | Journal: /Literary and Linguistic Computing/                  |
+  | *1978* | /TUebinger System von TExtverarbeitungs-Programmen/ (TU-STEP) |
+  | *1985* | rise of Personal Computers (PC) and email                     |
+  |        | [[class:blue][computing for communication]]                                   |
+  |        | [[class:blue][desktop publishing; digital editions on CD-ROM]]                |
+  | *1987* | /Text Encoding Initiative/ (TEI)                              |
+  | *1993* | /World Wide Web/ goes public                                  |
+  |        | [[class:blue][common, content-independent interface]]                         |
+  |        | [[class:blue][archives and libraries get involved]]                           |
+  | *2007* | Online journal: [[http://digitalhumanities.org/dhq/][Digital Humanities Quarterly]]                  |
+   
+* GRETIL -- goals and development
+
+  /= Göttingen [[http://gretil.sub.uni-goettingen.de][Register]] of Electronic Texts in Indian Languages/
+  
+  Cf. [[./res/GRETILFactsheet2017.pdf][fact sheet]] (2017).
+
+  
+** exemplary processing routines
+   /… for a linguistic research design/
+   
+  #+ATTR_HTML: :style font-size:75%
+  #+caption: Teich/Fankhauser in Flanders 2019, p. 238.
+  #+ATTR_HTML: :height 400 :width auto
+  [[./img/flanders238.png]]
+  
+
+
+** transformation: workflow until 2016
+   
+   http://gretil.sub.uni-goettingen.de/gretilbk.htm#Manu
+
+   #+reveal: split
+   
+   #+ATTR_HTML: :style font-size:50%
+   #+begin_example
+   # __        __            _ ____            __           _   
+   # \ \      / /__  _ __ __| |  _ \ ___ _ __ / _| ___  ___| |_ 
+   #  \ \ /\ / / _ \| '__/ _` | |_) / _ \ '__| |_ / _ \/ __| __|
+   #   \ V  V / (_) | | | (_| |  __/  __/ |  |  _|  __/ (__| |_ 
+   #    \_/\_/ \___/|_|  \__,_|_|   \___|_|  |_|  \___|\___|\__|
+
+   1. Kodierung analysieren und konvertieren [0/2]
+      - [ ] analysieren: UTF-8?
+      - [ ] konvertieren
+	# alt+F3 # -> "conv_sep" -> im Untermenü auswählen (z.B. *utf8-CSX)
+   2. Markup 1 [0/5]
+      - [ ] Seitennummer fett
+	# alt+F12 # -> "1"
+      - [ ] Kopfzeile kursiv
+	# alt+F12 # -> "2"
+      - [ ] Fußnotenapparat redline + letzten manuell
+	# alt+F12 # -> "3" + # strg+F8 # -> "redline"
+      - [ ] redline verstecken
+	# alt+F12 # -> "4"
+      - [ ] hidden ausblenden
+	# alt+F5 # -> "7", "
+   3. Cleanup [0/5]
+      - [ ] "°", "<", ">" raus
+      - [ ] überzählige Leerzeichen raus [0/3]
+	# strg+F10 # -> "ref" (edit ref); Protokoll umschalten: # strg+bildUP # -> "3"
+	- [ ] am Zeilenanfang
+	  # "[HRt]  [?]"
+	- [ ] in der Zeilenmitte
+	  # "[?]  [?]"
+	- [ ] am Zeilenende
+	  # "   [HRt]"
+      - [ ] Stropheneinrückung einheitlich (5, 10, 15 Blanks)
+	# alt+F12 # -> "bz" oder "bw"
+      - [ ] Absatzeinrückung einheitlich (5 Blanks)
+	# alt+F12 # -> "bz" oder "bw"
+      - [ ] mehrspaltige Fußnoten umbrechen
+	# alt+F12 # -> "fn "	
+   #+end_example
+	
+   #+reveal: split 
+
+   #+ATTR_HTML: :style font-size:50%
+   #+begin_example
+   4. Markup 2 [0/4]
+      - [ ] sonstige Nummerierung markieren
+      - [ ] Fußnoten [0/4]
+	- [ ] Strophen und Prosa markieren
+	  # alt+F10 # "refptsp0" für (15-, 10-,) 5-, 0er Absätze absteigend
+	  # Struktur der Markierung:
+   |----------+-------------+----------+--------------+----------+-------------+----------+-----------------------|
+   | Mark. -2 |             | Mark. -1 |              | Mark + 1 |             | Mark + 2 | Anwendungsbereich     |
+   |----------+-------------+----------+--------------+----------+-------------+----------+-----------------------|
+   |----------+-------------+----------+--------------+----------+-------------+----------+-----------------------|
+   | 12,100   | [evtl. Nr.] | 12,0     | Absatzbeginn | 12,102   | [evtl. Nr.] |          |                       |
+   |          |             | 12,101   | Fließtext    | 12,102   |             |          | Prosa                 |
+   |          |             |          | Absatzende   | 12,10    |             | 12,110   |                       |
+   |----------+-------------+----------+--------------+----------+-------------+----------+-----------------------|
+   | 12,100   |             | 12,0     | Zeile        | 12,10    |             | 12,110   | Strophen, Einzelzeile |
+   |----------+-------------+----------+--------------+----------+-------------+----------+-----------------------|
+	- [ ] Fußnoten in superscript
+	  # alt+F12 # -> "7"
+	- [ ] verstecken und ausblenden
+	  # alt+F12 # -> "8"
+	- [ ] restliche Nummern suchen
+	  # alt+F12 # -> "NR"
+      - [ ] je 5 Blanks zu "harten Blanks"
+	# alt+F2 # -> " " mit # pos1+leer  # ersetzen
+      - [ ] evtl. Kopfzeile vervollständigen
+	# alt+F12 # -> "_hl" und "_hr"
+   5. Präambel [0/9]
+      - [ ] Titel
+      - [ ] Inhalt verschlagworten
+      - [ ] Based on ...
+      - [ ] Input by ...
+      - [ ] Copyright
+      - [ ] Notice
+      - [ ] Additional Notes
+      - [ ] Versionsinformation
+      - [ ] Structure of References
+   #+end_example
+	
+   #+reveal: split 
+
+   #+ATTR_HTML: :style font-size:50%
+   #+begin_example
+   6. Erzeugung der endgültigen WP-Versionen (z.B. aufgrund von "..._C.09") [0/2]
+      - [ ] original layout (O) [0/7]
+	- [ ] versteckten Text anzeigen und Marke "hidden" löschen
+	- [ ] 12er- und 4er-Zeichensatz löschen
+	- [ ] nach "<" und ">" prüfen (wegen HTML)
+	- [ ] WP-Auszeichnungen ersetzen
+	- [ ] Auszeichnungstabelle und Versionsinfo bearbeiten
+	- [ ] Datum einfügen
+	- [ ] als WP 5.1-Datei sichern: "...OC."
+      - [ ] plain text version (P) [0/9]
+	- [ ] versteckten Text löschen
+	  # alt+F12 # -> "09"
+	- [ ] Fließtext erzeugen
+	  # alt+F12 # -> "f1"
+	- [ ] Straddle-Nachricht in redline
+	  # alt+F12 # -> "f2"
+	- [ ] 12er- und 4er-Zeichensatz löschen
+	  # alt+F12 # -> "_x" und "_y"
+	- [ ] nach "<" und ">" prüfen (wegen HTML)
+	- [ ] WP-Auszeichnungen ersetzen
+	  # alt+F3 # -> "formausz"
+	- [ ] Auszeichnungstabelle und Versionsinfo bearbeiten
+	- [ ] Datum einfügen
+	  # alt+F3 # -> "GRETdate"
+	- [ ] als WP 5.1-Datei sichern: "...PC."
+	  # F10 #
+	    # F10 #
+	    # alt+F3 # -> "GRETdate"
+	    # alt+F3 # -> "formausz"
+	    # alt+F12 # -> "_x" und "_y"
+	    # alt+F5 #, # alt+F2 # -> "HiddenOn" zu ""
+   #+end_example
+	
+   #+reveal: split 
+
+   #+ATTR_HTML: :style font-size:50%
+   #+begin_example
+   7. Ausgabedateien mit WP5.1 erzeugen (Voraussetzung: endgültige Version in CSX) [0/5]
+      - [ ] Vorlage erzeugen (hier aus "...OC" oder "...PC"-Datei) [0/5]
+	- [ ] Druckertreiber auf "neutral" stellen
+	  # shift+F7 #
+	- [ ] Leerzeichen setzen
+	- [ ] Datei in Dokument laden
+	  # F5 #
+	- [ ] speichern
+	  # F10 #
+	- [ ] mit Macro unter selbem Namen in WP4.2 speichern
+	  # alt+F10 # -> "zuc"
+      - [ ] CSX [0/4]
+	- [ ] Vorspann löschen
+	- [ ] mit Macro zu .txt
+	  # alt+F10 # -> "formtxt"
+	- [ ] Zeichenliste zwischen Auszeichnungsindex und Textbeginn
+	  # Smartkey (Netz Windows): # alt+c (läd .../gretil/_dia_csx)
+	- [ ] mit Macro als .txt speichern
+	  # alt+F10 # -> "zuct"
+      - [ ] REE [0/8]
+	- [ ] neues Fenster öffnen und REE-Drucker wählen
+	  # alt+F10 # -> "ree"
+	  # shift+F7 #
+	- [ ] Druckertreiber auf "neutral" zurück stellen
+	  # shift+F7 #
+	- [ ] Vorlage hineinladen
+	  # F5 #
+	- [ ] speichern
+	  # F10 # -> "...R."
+	- [ ] Vorspann löschen
+	- [ ] mit Macro zu .txt
+	  # alt+F10 # -> "formtxt"
+	- [ ] Zeichenliste zwischen Auszeichnungsindex und Textbeginn
+	  # Smartkey (Netz Windows): # alt+r (läd .../gretil/_dia_ree)
+	- [ ] mit Macro als .txt speichern
+	  # alt+F10 # -> "zurt"
+   #+end_example
+	
+   #+reveal: split 
+
+   #+ATTR_HTML: :style font-size:50%
+   #+begin_example
+      - [ ] UTF-8 [0/6]
+	- [ ] neues Fenster und mit Smartkey html-Umgebung einfügen
+	  # Smartkey (Netz Windows): # alt+ur
+	- [ ] Vorlage hineinladen
+	  # F5 #
+	- [ ] Auszeichnungsliste löschen
+	- [ ] vom Anfang des hineingeladenen Abschnitts: [0/2]
+	  - [ ] <br> einfügen
+	    # Smartkey (Netz Windows): # ü
+	  - [ ] Vorspann nach oben ziehen [0/2]
+	    # Smartkey (Netz Windows): # ä
+	    - [ ] Cursor an den Titel stellen
+	      # ENTER
+	    - [ ] Titel in html-Header ausbessern
+	- [ ] mit Macro zu .htm
+	  # alt+F10 # -> "formhtm"
+	- [ ] manuell als "...u.htm" speichern
+	  # strg+F5 # -> "1", "1"
+      - [ ] Prüfen
+   8. GRETIL-Website-Dateien [0/3]
+      - [ ] 4 Dateien nach folgendem Muster bearbeiten [0/4]
+	- [ ] "GRETIL.___" = Hauptsite mit History und Links auf 3 folgenden Dateien
+	- [ ] "GRET_CSX.___"
+	- [ ] "GRET_REE.___"
+	- [ ] "GRET_UTF.___"
+      - [ ] alle in WP6.2 öffnen und in der Hauptdatei mit Makro neuen Eintrag erstellen
+	# alt+F3 # -> "GR_NEU"
+      - [ ] jeder Datei einzeln mit Makro zu html konvertieren
+	# alt+F3 # -> "gretsave"
+  #+end_example
+
+** transformation: workflow since 2019
+  
+   http://gretil.sub.uni-goettingen.de/gretil.html#Manu
+
+   #+ATTR_HTML: :style font-size:75%;
+   1. Transfer to TEI-conforming template ~GRETILdummy_sa.xml~.
+   2. Apply XSLT stylesheets with:
+      #+ATTR_HTML: :style font-size:75%; width=100%;
+      #+begin_src shell 
+	java -jar /usr/share/java/saxon/saxon9he.jar -s:"$1" \ 
+	     -xsl:xslt2-stylesheets/plain-text.xsl \
+	     > transformations/plaintext/"${1%.*}.txt"
+	java -jar /usr/share/java/saxon/saxon9he.jar -s:"$1" \
+	     -xsl:xslt2-stylesheets/html.xsl \
+	     > transformations/html/"${1%.*}.htm"
+      #+end_src
+   3. Prepare for upload by running script ~prep4uplad.sh~.
+   4. Upload files to the server.  
+   
+  
+* TEI for critical editing
+
+** recap
+
+   #+ATTR_HTML: :style text-align:left
+   /… on descriptive (as opposed to procedural) markup/
+   
+   - structural information and content is separated from:
+     1. procedural information (how to process content) and
+     2. renditional information (how to render content).
+   - thereby independent of any application or rendering.
+     
+     
+** elements and attributes for critical editing
+   
+   - teiHeader:
+     - editorialDecl: cf. [[./res/tei-p5-guidelines.pdf][TEI Guidelines]], section 2.3.3
+     - msDesc: cf. [[./res/tei-p5-guidelines.pdf][TEI Guidelines]], section 10
+   - text:
+     - critical apparatus: cf. [[./res/tei-p5-guidelines.pdf][TEI Guidelines]], section 12
+
+** 3 methods of linking apparatus to text
+
+   Witness A 10.85cd:
+   #+begin_example
+   somasūryavibhedena vinayas tatra kāraṇam
+   #+end_example
+
+   Wit D 10.85cd:
+   #+begin_example
+   sūryasomavibhedena vinayas tatra kāraṇam
+   #+end_example
+
+** 1. location-referenced method, internal
+   TEI/teiHeader/encodingDesc/:
+   #+BEGIN_SRC xml
+     <variantEncoding method="location-referenced" location="internal"/>
+   #+END_SRC
+   TEI/text/body/:
+   #+BEGIN_SRC xml
+     <l xml:id="_10.85cd">sūryasomavibhedena vinayas tatra kāraṇam
+     <app>
+       <rdg wit="#D">sūryasoma</rdg>
+       <rdg wit="#A">somasūrya</rdg>
+     </app>
+     </l>
+   #+END_SRC
+   
+** 1. location-referenced method, external
+      
+   TEI/teiHeader/encodingDesc/:
+   #+attr_html: :style font-size:28px
+   #+begin_src xml
+     <variantEncoding method="location-referenced" location="external"/>
+   #+end_src
+   TEI/text/body/:
+   #+begin_src xml
+     <l xml:id="_10.85cd">sūryasomavibhedena vinayas tatra kāraṇam</l>
+   #+end_src
+   somewhere else in TEI/text/body/ or in a different file:
+   #+begin_src xml
+     <app loc="#_10.85cd">
+       <rdg wit="#D">sūryasoma</rdg>
+       <rdg wit="#A">somasūrya</rdg>
+     </app>
+   #+end_src
+
+** 2. double-end-point-attached method
+   
+   TEI/teiHeader/encodingDesc/:
+   #+begin_src xml
+     <variantEncoding method="doube-end-point" location="external"/>
+   #+end_src
+   TEI/text/body/:
+   #+begin_src xml
+     <l xml:id="_10.85cd">sūryasoma<anchor xml:id="_10.85_1"/>
+     vibhedena  vinayas tatra kāraṇam</l>
+
+     <app from="#_10.85cd" to="#_10.85_1">
+       <rdg wit="#D">sūryasoma</rdg>
+       <rdg wit="#A">somasūrya</rdg>
+     </app>
+   #+end_src
+
+
+** 3. parallel segmentation method
+   
+   TEI/teiHeader/encodingDesc/:
+   #+begin_src xml
+     <variantEncoding method="parallel-segmentation" location="internal"/>
+   #+end_src
+   TEI/text/body/:
+   #+begin_src xml
+     <l xml:id="_10.85cd"><app>
+       <rdg wit="#D">sūryasoma</rdg>
+       <rdg wit="#A">somasūrya</rdg>
+     </app> vibhedena  vinayas tatra kāraṇam</l>
+   #+end_src
+
+
+** example with parallel segmentation method
+   Cf. [[./tei-example-vrss.xml][example]].
+
+** exercise 1 (15min)
+   1. Go to https://teibyexample.org/tools/TBEvalidator.htm or your editor with schema support.
+   2. Use the [[./tei-template-minimal.xml][minimal template]] to sketch up a text with at least three witnesses and some variants,
+   3. validate your xml against the TEI-schema,
+   4. play around with the messages from the validator by adding and removing elements, attributes and values.
+      
+
+* XSLT
+  /= Extensible Stylesheet Language Transformations/
+
+  #+attr_reveal: frag-appear
+  - programming language for manipulating and transforming XML data
+  - XPath: expression language for selecting nodes in an XML document
+  - typical scenario: automate down-translation of data from strongly modeled formats (like TEI) into more weakly modeled formats
+
+    
+** processing
+  #+caption: Kelly 2005, p. 6: The XSLT process.
+  #+ATTR_HTML: :height 300 :width auto
+  [[./img/kelly6.png]]
+  
+  
+** navigating the XML-tree with XPath
+
+   #+html: <div style="width:100%; height:100%">
+   #+attr_html: :style font-size:75%; float:left
+   - absolute paths: ~/root/path/to/some/element~
+   - relative paths with 13 axes, can be indexed with ~[int]~:
+     1. ~self::~ or ~.~
+     2. ~child::~ or ~/~
+     3. ~descendant::~ or ~//~
+     4. ~descendant-or-self::~
+     5. ~parent::~ or ~../~
+     6. ~ancestor::~
+     7. ~ancestor-or-self::~
+     8. ~preceeding::~
+     9. ~preceeding-sibling::~
+     10. ~following::~
+     11. ~following-sibling::~
+     12. ~attribute::~ or ~@~
+     13. ~namespace::~
+	 
+  #+ATTR_HTML: :height 450 :width auto :style float:right
+  [[./img/kelly101.png]]
+
+  #+html: </div>
+
+** wildcards and functions
+   #+ATTR_HTML: :style font-size:75%
+    - ~*~ for any string, e.g. ~@attr~ only matches the attribute named ‘attr’, ~@*~ matches all attributes of an element,
+    - ~node()~ matches elements, text, comments, and processing instructions (i.e. everything except attributes),
+    - ~text()~ matches text content,
+    - ~last()~ returns a number equal to the position number of the last node in the current context.
+
+** building on identity transformation
+   - cf. [[./tei-example-vrss.xml][TEI example]] styled with [[./templates-identity-transformation.xsl][XSLT templates]]
+
+** exercise 2 (20min)
+   1. Go to http://xsltransform.net/ or your editor with XSLT support / + separate XSLT processor.
+   2. Use your XML from the previous exercise and the [[./templates.xsl][XSLT templates provided]] and
+   3. try to achieve the following result tree step by step:
+      1. Output only ~<title>~, ~<author>~, and ~<listWit>~ elements of the ~<teiHeader>~,
+      2. output only the last child (~<rdg>~  or ~<lem>~) of each ~<app>~ element,
+      3. remove the ~@wit~ attribute from the resulting ~<rdg>~  or ~<lem>~ elements.
+
+** pick and choose
+   Cf. [[./tei-example-vrss.xml][TEI example]] styled with [[./templates-pick-and-choose.xsl][XSLT templates]].
+
+** exercise 3 (10min)
+   1. Use your XML from the previous exercises and the [[./templates-pick-and-choose.xsl][XSLT templates provided]] and
+   2. try to produce the following:
+      1. Set a variable for one particular witness-reference (e.g. ~"#C"~),
+      2. write the value of this variable under the line specifying "Text: …",
+      3. output all Variants of that witness under "Variants: ".
+	 Did you miss anything? Why?
+
+* practical examples and outlook
+  - Predefined conversions: OxGarage [[https://oxgarage.tei-c.org/][web service]] and [[https://github.com/sebastianrahtz/oxgarage][GitHub repository]]
+  - [[https://github.com/radardenker/hp-witness-extraction][MS transcription extractor]] for the [[https://www.uni-marburg.de/de/fb10/iksl/faecher/indologie/aktuelles/news/yoga-projekt][Haṭhapradīpikā project]]
+  - new option for typesetting critical editions with LuaLaTeX: [[http://www.ekdosis.org/][ekdosis]] can export TEI-conformant XML
+    - [[https://github.com/radardenker/sanskrit-editing-suite][minimal example]] for a Sanskrit-edition and
+    - [[https://github.com/radardenker/sanskrit-editing-suite/blob/master/charts/editing-workflow-with-ekdosis.pdf][workflow-suggestion]].
+
+
+* references
+  #+ATTR_HTML: :style font-size:75%
+  - Flanders 2019: /The Shape of Data in the Digital Humanities. Modeling Texts and Text-based Resources/. London,
+  - Jannidis 2017: /Digital Humanities. Eine Einführung/. Stuttgart,
+  - Kelly 2015: /XSLT Jumpstarter/. Raleigh.
+  - Spence 2020: “English language and digital literacies”.
+    IN: Adolphs (ed.): /The Routledge Handbook of English Language and Digital Humanities/. London, pp. 472--493.
+  - Online resources: 
+    - [[https://tei-c.org/release/doc/tei-p5-doc/en/html/index.html][TEI guidelines]]
+    - [[https://teibyexample.org/][TEI by Example]]
+    - [[https://www.w3schools.com/xml/xsl_intro.asp][W^{3}schools on XSLT and XPath]]

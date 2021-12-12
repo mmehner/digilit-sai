@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<locatingRules xmlns="http://thaiopensource.com/ns/locating-rules/1.0">
+  <uri resource="templates-pick-and-choose.xsl" uri="schemas/xslt-relax-ng/xslt.rnc"/>
+  <uri resource="templates-identity-transformation.xsl" uri="schemas/xslt-relax-ng/xslt.rnc"/>
+  <uri resource="tei-example-vrss.xml" uri="schemas/tei-schema/tei_all.rnc"/>
+  <uri resource="tei-template-minimal.xml" uri="schemas/tei-schema/tei_all.rnc"/>
+</locatingRules>
