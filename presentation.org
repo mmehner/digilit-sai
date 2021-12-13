@@ -140,7 +140,7 @@
   
 
 
-** transformation: workflow until 2016
+** workflow until 2016
    
    http://gretil.sub.uni-goettingen.de/gretilbk.htm#Manu
 
@@ -343,7 +343,7 @@
 	# alt+F3 # -> "gretsave"
   #+end_example
 
-** transformation: workflow since 2019
+** workflow since 2019
   
    http://gretil.sub.uni-goettingen.de/gretil.html#Manu
 
@@ -391,7 +391,7 @@
    somasūryavibhedena vinayas tatra kāraṇam
    #+end_example
 
-   Wit D 10.85cd:
+   Witness D 10.85cd:
    #+begin_example
    sūryasomavibhedena vinayas tatra kāraṇam
    #+end_example
@@ -543,7 +543,7 @@
 	 Did you miss anything? Why?
 
 * practical examples and outlook
-  - Predefined conversions: OxGarage [[https://oxgarage.tei-c.org/][web service]] and [[https://github.com/sebastianrahtz/oxgarage][GitHub repository]]
+  - predefined conversions: OxGarage [[https://oxgarage.tei-c.org/][web service]] and [[https://github.com/sebastianrahtz/oxgarage][GitHub repository]]
   - [[https://github.com/radardenker/hp-witness-extraction][MS transcription extractor]] for the [[https://www.uni-marburg.de/de/fb10/iksl/faecher/indologie/aktuelles/news/yoga-projekt][Haṭhapradīpikā project]]
   - new option for typesetting critical editions with LuaLaTeX: [[http://www.ekdosis.org/][ekdosis]] can export TEI-conformant XML
     - [[https://github.com/radardenker/sanskrit-editing-suite][minimal example]] for a Sanskrit-edition and
@@ -552,8 +552,8 @@
 
 * references
   #+ATTR_HTML: :style font-size:75%
-  - Flanders 2019: /The Shape of Data in the Digital Humanities. Modeling Texts and Text-based Resources/. London,
-  - Jannidis 2017: /Digital Humanities. Eine Einführung/. Stuttgart,
+  - Flanders 2019: /The Shape of Data in the Digital Humanities. Modeling Texts and Text-based Resources/. London.
+  - Jannidis 2017: /Digital Humanities. Eine Einführung/. Stuttgart.
   - Kelly 2015: /XSLT Jumpstarter/. Raleigh.
   - Spence 2020: “English language and digital literacies”.
     IN: Adolphs (ed.): /The Routledge Handbook of English Language and Digital Humanities/. London, pp. 472--493.
