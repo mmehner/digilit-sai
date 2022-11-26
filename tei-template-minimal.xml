@@ -52,7 +52,10 @@
   <text xml:lang="en" xml:id="template">
     <body>
 
-      <p><app><lem></lem><rdg></rdg></app></p>
+      <p>This is a <app>
+      <rdg wit="#C">Text</rdg>
+      <rdg wit="#A #B">Test</rdg>
+      </app>.</p>
       
       <div/>
     </body>

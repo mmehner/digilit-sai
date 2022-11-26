@@ -1,9 +1,9 @@
 #+LANGUAGE: en
 
-#+REVEAL_ROOT: /home/sahibram/Software/reveal.js
-#+REVEAL_THEME: modnight
+
+#+REVEAL_THEME: modnight_big
 # other: black (default) white league sky beige simple serif blood night moon solarized
-# modified: modnight
+# modified: modnight, modnight_big
 #+REVEAL_TRANS: default
 # other: default cube page concave zoom linear fade none
 
@@ -106,7 +106,7 @@
    :END:
 
   #+ATTR_REVEAL: :data_id histtab
-  #+ATTR_HTML: :style font-size:75%
+  #+ATTR_HTML: :style font-size:50%
   | *1949* | Roberto Busa collaborates with IBM on /Index Thomisticus/     |
   | *1964* | /Linguistic Computing Centre/ in Cambridge                    |
   | *1966* | Journal: /Computers and the Humanities/                       |

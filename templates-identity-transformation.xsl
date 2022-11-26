@@ -17,9 +17,8 @@
     </xsl:copy>
   </xsl:template>
   
-  <!-- cutting a whole branch
-  <xsl:template match="t:teiHeader"/> 
-   -->
+  <!-- cutting a whole branch -->
+  <xsl:template match="t:teiHeader"/>
   
   <!-- skipping an element, but apply templates to children 
   <xsl:template match="t:body">
